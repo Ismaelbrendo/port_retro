@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Retrô</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Ambiente escuro de fundo -->
+        <div class="background-gradient"></div>
+        
+        <!-- Efeitos de luz ambiente -->
+        <div class="light-effect light-effect-1"></div>
+        <div class="light-effect light-effect-2"></div>
+        
+        <!-- Monitor CRT -->
+        <div class="monitor-container">
+            <div class="monitor">
+                <!-- Carcaça principal do monitor -->
+                <div class="monitor-case">
+                    <!-- Detalhes da carcaça superior -->
+                    <div class="monitor-top-detail">
+                        <div class="monitor-brand">RETROTECH</div>
+                        <div class="monitor-model">CRT-2000</div>
+                    </div>
+                    
+                    <!-- Parte inferior com controles -->
+                    <div class="monitor-bottom">
+                        <!-- Controles e botões -->
+                        <div class="monitor-controls">
+                            <div class="control-buttons">
+                                <div class="control-button"></div>
+                                <div class="control-button"></div>
+                            </div>
+                            <div class="power-led"></div>
+                        </div>
+                        <div class="monitor-label">MODEL: CRT-2000 • 17" SVGA</div>
+                    </div>
+                </div>
+                
+                <!-- Moldura da tela -->
+                <div class="screen-frame">
+                    <div class="screen-inner-frame">
+                        <div class="screen">
+                            <!-- Efeitos CRT -->
+                            <div class="crt-glass-effect"></div>
+                            <div class="crt-reflection"></div>
+                            <div class="crt-scanlines"></div>
+                            
+                            <!-- Conteúdo da tela -->
+                            <div id="screen-content" class="screen-content">
+                                <!-- Boot sequence será inserida aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reflexo geral no monitor -->
+                <div class="monitor-reflection"></div>
+                
+                <!-- Sombra projetada -->
+                <div class="monitor-shadow"></div>
+                
+                <!-- Detalhes de profundidade -->
+                <div class="monitor-depth-detail"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates para conteúdo das janelas -->
+    <template id="boot-template">
+        <div class="boot-sequence">
+            <div class="boot-text"></div>
+            <span class="cursor">_</span>
+        </div>
+    </template>
+
+    <template id="desktop-template">
+        <div class="desktop">
+            <!-- Papel de parede -->
+            <div class="wallpaper">
+                <div class="wallpaper-pattern"></div>
+                <div class="wallpaper-light"></div>
+            </div>
+            
+            <!-- Ícones do desktop -->
+            <div class="desktop-icons">
+                <div class="desktop-icon" data-window="about" data-x="30" data-y="30">
+                    <div class="icon-container">
+                        <div class="icon">👤</div>
+                    </div>
+                    <span class="icon-label">Sobre Mim</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="projects" data-x="30" data-y="130">
+                    <div class="icon-container">
+                        <div class="icon">📁</div>
+                    </div>
+                    <span class="icon-label">Projetos</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="contact" data-x="30" data-y="230">
+                    <div class="icon-container">
+                        <div class="icon">✉️</div>
+                    </div>
+                    <span class="icon-label">Contato</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="resume" data-x="30" data-y="330">
+                    <div class="icon-container">
+                        <div class="icon">📄</div>
+                    </div>
+                    <span class="icon-label">Currículo</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="pinball" data-x="30" data-y="430">
+                    <div class="icon-container">
+                        <div class="icon">🎮</div>
+                    </div>
+                    <span class="icon-label">Pinball</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="easter" data-x="150" data-y="30">
+                    <div class="icon-container">
+                        <div class="icon">⚡</div>
+                    </div>
+                    <span class="icon-label">???</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="settings" data-x="150" data-y="130">
+                    <div class="icon-container">
+                        <div class="icon">⚙️</div>
+                    </div>
+                    <span class="icon-label">Config</span>
+                </div>
+                
+                <div class="desktop-icon" data-window="help" data-x="150" data-y="230">
+                    <div class="icon-container">
+                        <div class="icon">❓</div>
+                    </div>
+                    <span class="icon-label">Ajuda</span>
+                </div>
+            </div>
+            
+            <!-- Barra de tarefas -->
+            <div class="taskbar">
+                <button class="start-button">
+                    <div class="start-icon">⊞</div>
+                    <span>iniciar</span>
+                </button>
+                
+                <div class="taskbar-programs"></div>
+                
+                <div class="system-tray">
+                    <div class="system-icons">
+                        <div class="system-icon"></div>
+                        <div class="system-icon yellow"></div>
+                    </div>
+                    <div class="clock" id="clock">00:00:00</div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Templates para janelas -->
+    <template id="window-template">
+        <div class="window">
+            <div class="window-header">
+                <div class="window-title-area">
+                    <div class="window-icon"></div>
+                    <span class="window-title"></span>
+                </div>
+                <div class="window-controls">
+                    <button class="window-control minimize">−</button>
+                    <button class="window-control maximize">□</button>
+                    <button class="window-control close">×</button>
+                </div>
+            </div>
+            <div class="window-content"></div>
+        </div>
+    </template>
+
+    <!-- Container para janelas -->
+    <div id="windows-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
