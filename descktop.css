@@ -1,0 +1,378 @@
+/* Importando fonte pixel */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #0a0a0a;
+    color: #fff;
+    line-height: 1;
+    overflow-x: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    scrollbar-width: none;
+}
+
+/* Efeito de scanline */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15) 0px,
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 999;
+}
+
+.icon {
+    width: 200px;
+}
+
+
+/* Header e Navegação */
+.retro-header {
+    background-color: #000;
+    border-bottom: 4px solid #39ff14;
+    padding: 1rem;
+    position: relative;
+    width: 400px;
+    right: -100px;
+    
+    z-index: 1;
+}
+
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: #39ff14;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px #39ff14;
+}
+
+.nav-menu a:hover {
+    background-color: #39ff14;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Seletor de Idiomas */
+.language-selector {
+    position: absolute;
+    right: 20px;
+    top: 5rem;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.lang-btn {
+    background: none;
+    border: 2px solid #39ff14;
+    color: #39ff14;
+    padding: 5px 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    background: #39ff14;
+    color: #000;
+    transform: scale(1.2);
+}
+
+.lang-btn.active {
+    background: #39ff14;
+    color: #000;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #000, #1a1a1a);
+    position: relative;
+    overflow: hidden;
+}
+
+.retro-title {
+    font-size: 3rem;
+    color: #39ff14;
+    text-align: center;
+    animation: glitch 1s infinite;
+    text-shadow: 2px 2px #ff00ff;
+}
+
+.retro-subtitle {
+    color: #00ffff;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Animação Press Start */
+.press-start {
+    
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    text-align: center;
+    animation: blink 2s infinite;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.press-start a {
+    text-decoration: none;
+    color: #fff;
+}
+.press-start:hover {
+    animation: none;
+}
+
+
+
+/* Seção Sobre */
+.about-section {
+    padding: 4rem 2rem;
+    background: #dd1b1b;
+}
+
+.character-card {
+    background: #000;
+    border: 4px solid #39ff14;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3);
+}
+
+/* Seção Projetos */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.project-card {
+    background: #000;
+    border: 4px solid #ff00ff;
+    padding: 1rem;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+/* Seção Habilidades */
+.skills-section {
+    background: #1a1a1a;
+    padding: 4rem 2rem;
+}
+
+.skill-bars {
+    background: #000000;
+    border: 4px solid #00ffff;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.skill-level {
+    background: #39ff14;
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Formulário de Contato */
+.retro-form {
+    display: none;
+    background: #000;
+    border: 4px solid #39ff14;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.retro-form input,
+.retro-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    background: #1a1a1a;
+    border: 2px solid #39ff14;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.retro-button {
+    background: #39ff14;
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.3s;
+}
+
+.retro-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+}
+
+/* Footer */
+.retro-footer {
+    position: relative;
+    top: -2rem;
+    left: 1rem;
+}
+
+/* Animações */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px #0026ff;
+    }
+    25% {
+        text-shadow: -2px -2px #00ffff;
+    }
+    50% {
+        text-shadow: 2px -2px #ff00ff;
+    }
+    75% {
+        text-shadow: -2px 2px #00ffff;
+    }
+    100% {
+        text-shadow: 2px 2px #c8ff00;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    * {
+        overflow: hidden;
+    }
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+    }
+
+    .retro-header {
+        background: none;
+        border-bottom: none;
+    }
+    .retro-title {
+        font-size: 5rem;
+        
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    * {
+        overflow: hidden;
+    }
+
+    .nav-menu {
+        
+        display: none;
+        
+    }
+
+    .retro-header {
+        position: absolute;
+    }
+
+    .language-selector {
+        position:relative;
+        align-items: center;
+        justify-content: center;
+        right: -0.5rem;
+        display: flex;
+
+    }
+    .lang-btn {
+        font-size: 2rem;
+        
+        
+        
+    }
+    
+    .press-start {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 378px) {
+    * {
+        overflow: hidden;
+    }
+    
+    .lang-btn {
+        font-size: 1.3rem;
+        position: relative;
+        top: -4rem;
+    }
+    .retro-title {
+        font-size: 2rem;
+    }
+    .retro-subtitle {
+        font-size: 0.9rem;
+    }
+    .press-start {
+        font-size: 0.9rem;
+    }
+
+    .retro-footer {
+        font-size: 0.7rem;
+        position: relative;
+    }
+}

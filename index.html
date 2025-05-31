@@ -78,91 +78,82 @@
     </template>
 
     <template id="desktop-template">
-        <div class="desktop">
-            <!-- Papel de parede -->
-            <div class="wallpaper">
-                <div class="wallpaper-pattern"></div>
-                <div class="wallpaper-light"></div>
+        <!-- DESCKTOP TEMPLATE----------------------------------------------------------------------------------------- -->
+                <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ismael Brendo</title>
+        <link rel="icon" href="/img/favicon.png">
+        <link rel="stylesheet" href="descktop.css">
+    </head>
+    <body>
+        <!-- Header / Nav -->
+        <header class="retro-header">
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#inicio" data-i18n="nav.start">inicio</a></li>
+                    <li><a href="#sobre" data-i18n="nav.about">sobre</a></li>
+                    <li><a href="#projetos" data-i18n="nav.projects">projetos</a></li>
+                    <li><a href="#habilidades" data-i18n="nav.skills">habilidades</a></li>
+                    <li><a href="#contato" data-i18n="nav.contact">contato</a></li>
+                </ul>
+                
+            </nav>
+            <div class="language-selector">
+                <button onclick="changeLanguage('pt')" class="lang-btn">PT</button>
+                <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+                <button onclick="changeLanguage('jp')" class="lang-btn">JP</button>
             </div>
-            
-            <!-- Ícones do desktop -->
-            <div class="desktop-icons">
-                <div class="desktop-icon" data-window="about" data-x="30" data-y="30">
-                    <div class="icon-container">
-                        <div class="icon">👤</div>
+        </header>
+
+        <!-- Seção Principal -->
+        <main>
+            <!-- Tela Inicial -->
+            <section id="inicio" class="hero-section">
+                <div class="pixel-container">
+                    <h1 class="retro-title" data-i18n="hero.title">ISMAEL BRENDO</h1>
+                    <p class="retro-subtitle" data-i18n="hero.subtitle">DESENVOLVEDOR FRONTEND</p>
+                    <div class="press-start">
+                        <p><a href="#" data-i18n="hero.pressStart">PRESSIONE START PARA CONTINUAR</a></p>
                     </div>
-                    <span class="icon-label">Sobre Mim</span>
                 </div>
-                
-                <div class="desktop-icon" data-window="projects" data-x="30" data-y="130">
-                    <div class="icon-container">
-                        <div class="icon">📁</div>
+            </section>
+
+            <!-- Contato -->
+            <section id="contato" class="contact-section">
+                <div class="contact-container">
+                    <form class="retro-form">
+                        <div class="form-group">
+                            <label for="nome" data-i18n="contact.name">NOME:</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.email">EMAIL:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem" data-i18n="contact.message">MENSAGEM:</label>
+                            <textarea id="mensagem" name="mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="retro-button" data-i18n="contact.send">ENVIAR</button>
+                    </form>
+                    <div class="social-links">
+                        <!-- Links sociais serão adicionados aqui -->
                     </div>
-                    <span class="icon-label">Projetos</span>
                 </div>
-                
-                <div class="desktop-icon" data-window="contact" data-x="30" data-y="230">
-                    <div class="icon-container">
-                        <div class="icon">✉️</div>
-                    </div>
-                    <span class="icon-label">Contato</span>
-                </div>
-                
-                <div class="desktop-icon" data-window="resume" data-x="30" data-y="330">
-                    <div class="icon-container">
-                        <div class="icon">📄</div>
-                    </div>
-                    <span class="icon-label">Currículo</span>
-                </div>
-                
-                <div class="desktop-icon" data-window="pinball" data-x="30" data-y="430">
-                    <div class="icon-container">
-                        <div class="icon">🎮</div>
-                    </div>
-                    <span class="icon-label">Pinball</span>
-                </div>
-                
-                <div class="desktop-icon" data-window="easter" data-x="150" data-y="30">
-                    <div class="icon-container">
-                        <div class="icon">⚡</div>
-                    </div>
-                    <span class="icon-label">???</span>
-                </div>
-                
-                <div class="desktop-icon" data-window="settings" data-x="150" data-y="130">
-                    <div class="icon-container">
-                        <div class="icon">⚙️</div>
-                    </div>
-                    <span class="icon-label">Config</span>
-                </div>
-                
-                <div class="desktop-icon" data-window="help" data-x="150" data-y="230">
-                    <div class="icon-container">
-                        <div class="icon">❓</div>
-                    </div>
-                    <span class="icon-label">Ajuda</span>
-                </div>
-            </div>
-            
-            <!-- Barra de tarefas -->
-            <div class="taskbar">
-                <button class="start-button">
-                    <div class="start-icon">⊞</div>
-                    <span>iniciar</span>
-                </button>
-                
-                <div class="taskbar-programs"></div>
-                
-                <div class="system-tray">
-                    <div class="system-icons">
-                        <div class="system-icon"></div>
-                        <div class="system-icon yellow"></div>
-                    </div>
-                    <div class="clock" id="clock">00:00:00</div>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="retro-footer">
+            <p>@Ismael Brendo</p>
+        </footer>
+        <!-- Fim do corpo do HTML -->
+
+        <script src="script.js"></script>
+    </body>
     </template>
+    <!-- FIM DESCKTOP TEMPLATEE -------------------------------------------------------------------------- -->
 
     <!-- Templates para janelas -->
     <template id="window-template">
