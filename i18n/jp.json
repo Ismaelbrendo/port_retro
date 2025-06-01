@@ -1,0 +1,38 @@
+{
+    "nav": {
+      "start": "スタート",
+      "about": "自己紹介",
+      "projects": "プロジェクト",
+      "skills": "スキル",
+      "contact": "お問い合わせ"
+    },
+    "hero": {
+      "title": "イズマエル ブレンド",
+      "subtitle": "ソフトウェアエンジニア",
+      "pressStart": "スタートを押してください"
+    },
+    "about": {
+      "title": "自己紹介",
+      "playerInfo": "プレイヤー情報"
+    },
+    "projects": {
+      "title": "プロジェクト",
+      "demoBtn": "デモ",
+      "codeBtn": "コード"
+    },
+    "skills": {
+      "title": "スキル",
+      "techSkills": "技術スキル"
+    },
+    "contact": {
+      "title": "お問い合わせ",
+      "name": "名前:",
+      "email": "メール:",
+      "message": "メッセージ:",
+      "send": "送信"
+    },
+    "footer": {
+      "rights": "全著作権所有",
+      "madeWith": "愛とコードで作られました"
+    }
+  }

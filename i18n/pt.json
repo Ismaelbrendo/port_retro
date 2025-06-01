@@ -1,0 +1,14 @@
+{
+    "nav": {
+      "start": "início",
+      "about": "sobre",
+      "projects": "projetos",
+      "skills": "habilidades",
+      "contact": "contato"
+    },
+    "hero": {
+      "title": "ISMAEL BRENDO",
+      "subtitle": "ENGENHEIRO DE SOFTWARE",
+      "pressStart": "PRESSIONE START PARA CONTINUAR"
+    }
+  }

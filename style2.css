@@ -1,3 +1,4 @@
+/* TESTE-------------------------------------------------------------------------
 /* Importando fonte pixel */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
@@ -47,21 +48,23 @@ body::after {
 
 /* Header e Navegação */
 .retro-header {
-    background-color: #000;
-    border-bottom: 4px solid #39ff14;
+    
     padding: 1rem;
     position: relative;
-    width: 400px;
-    right: -100px;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    
     
     z-index: 1;
 }
 
-.nav-menu ul {
+.nav-menu  {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 2rem;
+    gap: 0rem;
+    font-family: 'Press Start 2P', cursive;
+    display: none;
 }
 
 .nav-menu a {
@@ -70,6 +73,8 @@ body::after {
     padding: 0.5rem 1rem;
     transition: all 0.3s;
     text-shadow: 0 0 5px #39ff14;
+    font-family: 'Press Start 2P', cursive;
+    display: none;
 }
 
 .nav-menu a:hover {
@@ -82,10 +87,11 @@ body::after {
 .language-selector {
     position: absolute;
     right: 20px;
-    top: 5rem;
+    top: 1rem;
     transform: translateY(-50%);
     display: flex;
     gap: 10px;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .lang-btn {
@@ -112,7 +118,7 @@ body::after {
 
 /* Hero Section */
 .hero-section {
-    height: 100vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -122,18 +128,20 @@ body::after {
 }
 
 .retro-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #39ff14;
     text-align: center;
     animation: glitch 1s infinite;
     text-shadow: 2px 2px #ff00ff;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .retro-subtitle {
     color: #00ffff;
     text-align: center;
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    font-family: 'Press Start 2P', cursive;
 }
 
 /* Animação Press Start */
@@ -144,7 +152,7 @@ body::after {
     width: 100%;
     text-align: center;
     animation: blink 2s infinite;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 .press-start a {
@@ -375,4 +383,4 @@ body::after {
         font-size: 0.7rem;
         position: relative;
     }
-}
+  }

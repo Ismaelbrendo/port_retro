@@ -1,0 +1,38 @@
+{
+    "nav": {
+      "start": "start",
+      "about": "about",
+      "projects": "projects",
+      "skills": "skills",
+      "contact": "contact"
+    },
+    "hero": {
+      "title": "ISMAEL BRENDO",
+      "subtitle": "SOFTWARE ENGINEER",
+      "pressStart": "PRESS START TO CONTINUE"
+    },
+    "about": {
+      "title": "ABOUT ME",
+      "playerInfo": "PLAYER INFO"
+    },
+    "projects": {
+      "title": "PROJECTS",
+      "demoBtn": "DEMO",
+      "codeBtn": "CODE"
+    },
+    "skills": {
+      "title": "SKILLS",
+      "techSkills": "TECH SKILLS"
+    },
+    "contact": {
+      "title": "CONTACT",
+      "name": "NAME:",
+      "email": "EMAIL:",
+      "message": "MESSAGE:",
+      "send": "SEND"
+    },
+    "footer": {
+      "rights": "ALL RIGHTS RESERVED",
+      "madeWith": "MADE WITH ♥ AND CODE"
+    }
+  }
