@@ -266,8 +266,9 @@ body::after {
 /* Footer */
 .retro-footer {
     position: relative;
-    top: -2rem;
+    top: -1rem;
     left: 1rem;
+    font-size: .7rem;
 }
 
 /* Animações */
@@ -315,8 +316,12 @@ body::after {
         border-bottom: none;
     }
     .retro-title {
-        font-size: 5rem;
+        font-size: 2rem;
         
+    }
+
+    .retro-subtitle {
+        font-size: .9rem;
     }
 
     .project-grid {
@@ -327,7 +332,9 @@ body::after {
 @media (max-width: 768px) {
     * {
         overflow: hidden;
+        
     }
+
 
     .nav-menu {
         
@@ -343,20 +350,22 @@ body::after {
         position:relative;
         align-items: center;
         justify-content: center;
-        right: -0.5rem;
+        right: .3rem;
         display: flex;
 
     }
     .lang-btn {
-        font-size: 2rem;
+        font-size: .8rem;
         
         
         
     }
     
     .press-start {
-        font-size: 1.3rem;
+        font-size: .7rem;
     }
+
+
 }
 
 @media (max-width: 378px) {

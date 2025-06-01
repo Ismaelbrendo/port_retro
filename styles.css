@@ -246,6 +246,8 @@ body {
   height: 100%;
 }
 
+
+
 /* Reflexo geral no monitor */
 .monitor-reflection {
   position: absolute;
@@ -620,9 +622,11 @@ body {
 /* Responsividade */
 @media (max-width: 768px) {
   .monitor {
-    width: 95vw;
+    width: 80vw;
     height: 70vh;
   }
+
+  
 
   .desktop-icon {
     padding: 0.5rem;
