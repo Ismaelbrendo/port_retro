@@ -428,12 +428,15 @@ function showDesktop() {
   if (monitor3dWrapper) {
     let isDragging = false;
     let previousMouseX = 0;
+    let previousMouseY = 0; // Added
+    let currentRotateX = 0; // Added
     let currentRotateY = 0;
     const rotationSensitivity = 0.5;
 
     monitor3dWrapper.addEventListener('mousedown', (e) => {
       isDragging = true;
       previousMouseX = e.clientX;
+      previousMouseY = e.clientY; // Added
       monitor3dWrapper.style.cursor = 'grabbing'; // Optional: change cursor
       document.body.style.userSelect = 'none'; // Optional: prevent text selection
 
@@ -445,10 +448,17 @@ function showDesktop() {
       if (!isDragging) return;
 
       const deltaX = e.clientX - previousMouseX;
+      const deltaY = e.clientY - previousMouseY; // Added
       previousMouseX = e.clientX;
+      previousMouseY = e.clientY; // Added
 
       currentRotateY += deltaX * rotationSensitivity;
-      monitor3dWrapper.style.transform = `rotateY(${currentRotateY}deg)`;
+      currentRotateX -= deltaY * rotationSensitivity; // Added, -= to invert Y mouse direction
+
+      // Clamp X-axis rotation
+      currentRotateX = Math.max(-60, Math.min(60, currentRotateX)); // Added
+
+      monitor3dWrapper.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`; // Updated
     }
 
     function stopMonitorDrag() {

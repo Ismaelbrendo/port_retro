@@ -9,6 +9,12 @@ body {
   overflow: hidden;
 }
 
+:root {
+  --monitor-width: 850px;
+  --monitor-height: 650px;
+  --monitor-depth: 400px;
+}
+
 /* Container principal */
 .main-container {
   perspective: 1000px;
@@ -60,9 +66,9 @@ body {
 
 .monitor {
   transform-style: preserve-3d;
-  position: relative;
-  width: 850px;
-  height: 650px;
+  position: relative; /* Ensured */
+  width: var(--monitor-width);
+  height: var(--monitor-height);
   max-width: 90vw;
   max-height: 85vh;
 }
@@ -71,25 +77,27 @@ body {
   transform-style: preserve-3d;
 }
 
-.monitor-back {
+.monitor-face {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #d1c7b7; /* Slightly darker than monitor case */
-  transform: translateZ(-20px) rotateY(180deg);
-  border-radius: 2rem 2rem 0.5rem 0.5rem; /* Match front case */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: #555;
+  top: 0;
+  left: 0;
+  width: 100%; /* Will be overridden for sides/top/bottom where one dimension is depth */
+  height: 100%; /* Will be overridden for sides/top/bottom where one dimension is depth */
+  background-color: #e0d8c8;
+  border: 1px solid #c2b896;
+  box-sizing: border-box;
+  backface-visibility: hidden;
 }
 
 /* Carcaça do monitor */
+/* This is the FRONT face */
 .monitor-case {
-  backface-visibility: hidden;
-  position: absolute;
-  inset: 0;
+  backface-visibility: hidden; /* Already present, good */
+  position: absolute; /* Already present */
+  inset: 0; /* Makes it full width/height of .monitor parent */
+  /* width: var(--monitor-width); /* Not needed due to inset: 0 */
+  /* height: var(--monitor-height); /* Not needed due to inset: 0 */
+  transform: translateZ(calc(var(--monitor-depth) / 2));
   border-radius: 2rem 2rem 0.5rem 0.5rem;
   background: linear-gradient(
     135deg,
@@ -189,9 +197,12 @@ body {
 }
 
 /* Moldura da tela */
+/* This is also part of the FRONT face, on top of monitor-case */
 .screen-frame {
-  position: absolute;
+  position: absolute; /* Already present */
+  /* top, left, right, bottom define its position on the .monitor plane */
   top: 4rem;
+  transform: translateZ(calc(var(--monitor-depth) / 2 + 1px)); /* Slightly in front of monitor-case */
   left: 3rem;
   right: 3rem;
   bottom: 5rem;
@@ -305,6 +316,87 @@ body {
   height: 0.25rem;
   border-radius: 50%;
   background: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+}
+
+/* New Monitor Panel Styling */
+.monitor-back-panel {
+  /* Extends .monitor-face implicitly if we add class in HTML, or copy properties */
+  position: absolute; /* from .monitor-face */
+  box-sizing: border-box; /* from .monitor-face */
+  backface-visibility: hidden; /* from .monitor-face */
+  border: 1px solid #c2b896; /* from .monitor-face */
+
+  width: var(--monitor-width);
+  height: var(--monitor-height);
+  top: 0; /* from .monitor-face */
+  left: 0; /* from .monitor-face */
+  background-color: #c2b896; /* Slightly darker than default .monitor-face */
+  transform: rotateY(180deg) translateZ(calc(var(--monitor-depth) / 2));
+
+  /* Placeholder text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  content: "BACK"; /* Note: CSS content property only works with ::before/::after */
+}
+/* TODO: Add placeholder text via HTML or JS if CSS content doesn't work on div */
+
+.monitor-right-side {
+  position: absolute;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  border: 1px solid #c2b896;
+  background-color: #e0d8c8; /* Default face color */
+
+  width: var(--monitor-depth);
+  height: var(--monitor-height);
+  left: calc((var(--monitor-width) - var(--monitor-depth)) / 2);
+  top: 0;
+  transform: rotateY(90deg) translateZ(calc(var(--monitor-width) / 2));
+}
+
+.monitor-left-side {
+  position: absolute;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  border: 1px solid #c2b896;
+  background-color: #e0d8c8; /* Default face color */
+
+  width: var(--monitor-depth);
+  height: var(--monitor-height);
+  left: calc((var(--monitor-width) - var(--monitor-depth)) / 2);
+  top: 0;
+  transform: rotateY(-90deg) translateZ(calc(var(--monitor-width) / 2));
+}
+
+.monitor-top-panel {
+  position: absolute;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  border: 1px solid #c2b896;
+  background-color: #e0d8c8; /* Default face color */
+
+  width: var(--monitor-width);
+  height: var(--monitor-depth);
+  left: 0;
+  top: calc((var(--monitor-height) - var(--monitor-depth)) / 2);
+  transform: rotateX(90deg) translateZ(calc(var(--monitor-height) / 2));
+}
+
+.monitor-bottom-panel {
+  position: absolute;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  border: 1px solid #c2b896;
+  background-color: #e0d8c8; /* Default face color */
+
+  width: var(--monitor-width);
+  height: var(--monitor-depth);
+  left: 0;
+  top: calc((var(--monitor-height) - var(--monitor-depth)) / 2);
+  transform: rotateX(-90deg) translateZ(calc(var(--monitor-height) / 2));
 }
 
 /* Boot Sequence */
