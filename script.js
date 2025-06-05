@@ -422,6 +422,47 @@ function showDesktop() {
   })
 
   AppState.showDesktop = true
+
+  // Monitor 3D Rotation Logic
+  const monitor3dWrapper = document.querySelector('.monitor-3d-wrapper');
+  if (monitor3dWrapper) {
+    let isDragging = false;
+    let previousMouseX = 0;
+    let currentRotateY = 0;
+    const rotationSensitivity = 0.5;
+
+    monitor3dWrapper.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      previousMouseX = e.clientX;
+      monitor3dWrapper.style.cursor = 'grabbing'; // Optional: change cursor
+      document.body.style.userSelect = 'none'; // Optional: prevent text selection
+
+      document.addEventListener('mousemove', handleMonitorDrag);
+      document.addEventListener('mouseup', stopMonitorDrag);
+    });
+
+    function handleMonitorDrag(e) {
+      if (!isDragging) return;
+
+      const deltaX = e.clientX - previousMouseX;
+      previousMouseX = e.clientX;
+
+      currentRotateY += deltaX * rotationSensitivity;
+      monitor3dWrapper.style.transform = `rotateY(${currentRotateY}deg)`;
+    }
+
+    function stopMonitorDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+      monitor3dWrapper.style.cursor = 'grab'; // Optional: revert cursor
+      document.body.style.userSelect = ''; // Optional: re-enable text selection
+
+      document.removeEventListener('mousemove', handleMonitorDrag);
+      document.removeEventListener('mouseup', stopMonitorDrag);
+    }
+  } else {
+    console.warn("'.monitor-3d-wrapper' not found. Monitor rotation will not work.");
+  }
 }
 
 // Atualizar relógio
